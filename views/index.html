@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>rogozhnikov test task</title>
+  <script type="text/javascript" src="js/steal/steal.js?app/scroller.js"></script>
+  <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less">
+</head>
+<body>
+<div class="container">
+
+  <div class="scroller">
+    <div class="scroller__mine">
+      <ul class="scroller__list">
+        <!-- -->
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!--  вообще, предварительную загрузку надо делать по другому, но это быстрое решение )) -->
+<img src="/img/ajax-loader.gif" style="display: none">
+
+<script type="text/ejs" id="scroller__item">
+<% photos.forEach(function(photo){ %>
+  <li class="scroller__item" alt="title: <%= photo.title %>">
+    <img class="scroller__img" src="<%= photo.src %>"
+         style="
+           width: <%= photo.width %>px;
+           height: <%= photo.height %>px;
+           margin-left: -<%= (photo.width - 190 - 4) / 2 %>px;
+           margin-top: -<%= (photo.height - 150) / 2 %>px
+         ">
+    <i class="scroller__bd"></i>
+  </li>
+<% }) %>
+</script>
+
+</body>
+</html>
